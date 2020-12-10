@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. API", "1. API", "{D3027995-D343-4A68-8038-5D4522D17B1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cerveja.Do.Futuro.API", "Cerveja.Do.Futuro.API\Cerveja.Do.Futuro.API.csproj", "{A59F66DC-8D7D-446C-AACB-D5B4E26B5B7F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Aplication", "2. Aplication", "{628DCB88-2997-464D-9AE9-6A817D3DEB04}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Domain", "3. Domain", "{E8DDEA0A-DBEC-467D-8533-A9FC5F9FDF8F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Infra", "4. Infra", "{8C74FBCA-B576-40DE-AF4D-1217932A291B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cerveja.Do.Futuro.Aplication", "Cerveja.Do.Futuro.Aplication\Cerveja.Do.Futuro.Aplication.csproj", "{B78C8764-D0B9-4AC9-999E-292EE00C334F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cerveja.Do.Futuro.Domain", "Cerveja.Do.Futuro.Domain\Cerveja.Do.Futuro.Domain.csproj", "{2FB3E49F-212F-438B-921F-167A77837001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cerveja.Do.Futuro.Infra", "Cerveja.Do.Futuro.Infra\Cerveja.Do.Futuro.Infra.csproj", "{7B78A690-2A29-4F35-9B86-E8AB954AE9C9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A59F66DC-8D7D-446C-AACB-D5B4E26B5B7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A59F66DC-8D7D-446C-AACB-D5B4E26B5B7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A59F66DC-8D7D-446C-AACB-D5B4E26B5B7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A59F66DC-8D7D-446C-AACB-D5B4E26B5B7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B78C8764-D0B9-4AC9-999E-292EE00C334F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B78C8764-D0B9-4AC9-999E-292EE00C334F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B78C8764-D0B9-4AC9-999E-292EE00C334F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B78C8764-D0B9-4AC9-999E-292EE00C334F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FB3E49F-212F-438B-921F-167A77837001}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FB3E49F-212F-438B-921F-167A77837001}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FB3E49F-212F-438B-921F-167A77837001}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FB3E49F-212F-438B-921F-167A77837001}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B78A690-2A29-4F35-9B86-E8AB954AE9C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B78A690-2A29-4F35-9B86-E8AB954AE9C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B78A690-2A29-4F35-9B86-E8AB954AE9C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B78A690-2A29-4F35-9B86-E8AB954AE9C9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A59F66DC-8D7D-446C-AACB-D5B4E26B5B7F} = {D3027995-D343-4A68-8038-5D4522D17B1B}
+		{B78C8764-D0B9-4AC9-999E-292EE00C334F} = {628DCB88-2997-464D-9AE9-6A817D3DEB04}
+		{2FB3E49F-212F-438B-921F-167A77837001} = {E8DDEA0A-DBEC-467D-8533-A9FC5F9FDF8F}
+		{7B78A690-2A29-4F35-9B86-E8AB954AE9C9} = {8C74FBCA-B576-40DE-AF4D-1217932A291B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5F89B9F2-DA00-4227-AF6E-64BEB5760454}
+	EndGlobalSection
+EndGlobal
