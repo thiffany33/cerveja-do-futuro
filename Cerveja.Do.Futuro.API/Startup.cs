@@ -1,15 +1,18 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Cerveja.Do.Futuro.Aplication.Interfaces;
+using Cerveja.Do.Futuro.Aplication.Services;
+using Cerveja.Do.Futuro.Domain.Interfaces;
+using Cerveja.Do.Futuro.Domain.Interfaces.Validacao;
+using Cerveja.Do.Futuro.Domain.Validation;
+using Cerveja.Do.Futuro.Infra.Context;
+using Cerveja.Do.Futuro.Infra.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.SwaggerUI;
 
 namespace Cerveja.Do.Futuro.API
 {
@@ -22,15 +25,38 @@ namespace Cerveja.Do.Futuro.API
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
-        }
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "Cerveja do Futuro",
+                    Version = "v1",
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+                });
+            });
+            AddDbContextCollection(services);
+
+            services.AddControllers();
+            services.AddCors();
+
+            services.AddScoped<ICervejariaRepository, CervejariaRepository> ();
+            services.AddScoped<ICervejariaValidacao, CervejariasValidacao> ();
+            services.AddScoped<ICervejariaService, CervejariaService> ();
+
+
+        }
+        
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "v1 Cerveja do Futuro");
+                c.DocExpansion(DocExpansion.None);
+            });
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -46,6 +72,12 @@ namespace Cerveja.Do.Futuro.API
             {
                 endpoints.MapControllers();
             });
+        }
+
+        private void AddDbContextCollection(IServiceCollection services)
+        {
+            services.AddDbContext<MainContext>(opt => opt
+                .UseSqlServer("Data Source=NT-04844\\SQLEXPRESS;Initial Catalog=Cervejarias;Integrated Security=True;MultipleActiveResultSets=True"));
         }
     }
 }
