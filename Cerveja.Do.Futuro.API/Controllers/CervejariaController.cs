@@ -7,7 +7,7 @@ using System.Linq;
 namespace Cerveja.Do.Futuro.API.Controllers
 {
     [ApiController]
-    [Microsoft.AspNetCore.Mvc.Route("Cervejarias")]
+    [Microsoft.AspNetCore.Mvc.Route("Cadastro de Cervejarias")]
     public class CervejariaController : ControllerBase
     {
         private readonly ICervejariaService _cervejariaService;
