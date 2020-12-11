@@ -66,7 +66,6 @@ namespace Cerveja.Do.Futuro.Infra.Migrations
 
                     b.ToTable("Cervejarias");
                 });
-#pragma warning restore 612, 618
         }
     }
 }

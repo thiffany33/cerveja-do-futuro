@@ -22,7 +22,6 @@ namespace Cerveja.Do.Futuro.API
         {
             Configuration = configuration;
         }
-
         public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
@@ -44,8 +43,6 @@ namespace Cerveja.Do.Futuro.API
             services.AddScoped<ICervejariaRepository, CervejariaRepository> ();
             services.AddScoped<ICervejariaValidacao, CervejariasValidacao> ();
             services.AddScoped<ICervejariaService, CervejariaService> ();
-
-
         }
         
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
