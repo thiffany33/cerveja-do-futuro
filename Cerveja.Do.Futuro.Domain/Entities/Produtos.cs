@@ -15,6 +15,7 @@ namespace Cerveja.Do.Futuro.Domain.Entities
         public double Preco { get; set; }
 
         public Guid CervejariasId { get; set; }
+        public string DescricaoProduto { get; set; }
 
         public Produtos()
         {

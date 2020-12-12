@@ -1,4 +1,5 @@
-﻿using Cerveja.Do.Futuro.Domain.Entities;
+﻿using Cerveja.Do.Futuro.Aplication.Interfaces;
+using Cerveja.Do.Futuro.Domain.Entities;
 using Cerveja.Do.Futuro.Domain.Interfaces;
 using Cerveja.Do.Futuro.Domain.Interfaces.Validacao;
 using System;
@@ -7,7 +8,7 @@ using System.Linq;
 
 namespace Cerveja.Do.Futuro.Aplication.Services
 {
-    public class ProdutosService
+    public class ProdutosService : IProdutosService
     {
         private readonly IProdutoRepository _produtoRepository;
         private readonly IProdutosValidacao _produtosValidacao;
@@ -28,7 +29,7 @@ namespace Cerveja.Do.Futuro.Aplication.Services
             return erros;
         }
 
-        public List<string> Deletare(Guid id)
+        public List<string> Deletar(Guid id)
         {
             var erros = _produtosValidacao.ValidarDeletar(id);
             if (!erros.Any())
@@ -46,16 +47,6 @@ namespace Cerveja.Do.Futuro.Aplication.Services
                 _produtoRepository.Update(produto);
             }
             return erros;
-        }
-
-        public IEnumerable<Produtos> ListarTodos()
-        {
-            return _produtoRepository.GetAll();
-        }
-
-        public Produtos PesquisarPorId(Guid id)
-        {
-            return _produtoRepository.GetById(id);
         }
     }
 }

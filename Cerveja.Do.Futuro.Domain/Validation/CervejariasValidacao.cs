@@ -145,8 +145,8 @@ namespace Cerveja.Do.Futuro.Domain.Validation
 
         private bool ValidarExistenciaCNPJ(string cnpj)
         {
-            var fornecedor = _cervejariaRepository.ObterCervejariasPorCNPJ(cnpj);
-            if (fornecedor == null)
+            var cervejarias = _cervejariaRepository.ObterCervejariasPorCNPJ(cnpj);
+            if (cervejarias == null)
             {
                 return true;
             }

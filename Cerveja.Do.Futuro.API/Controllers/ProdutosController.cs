@@ -7,7 +7,7 @@ using System.Linq;
 namespace Cerveja.Do.Futuro.API.Controllers
 {
     [ApiController]
-    [Route("Cadastro de Cervejas")]
+    [Route("CadastroCervejas")]
     public class ProdutosController : ControllerBase
     {
         private readonly IProdutosService _produtosService;

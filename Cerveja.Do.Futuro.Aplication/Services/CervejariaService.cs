@@ -26,5 +26,15 @@ namespace Cerveja.Do.Futuro.Aplication.Services
             }
             return erros;
         }
+
+        public List<string> Editar(Cervejarias cervejarias)
+        {
+            var erros = _cervjariaValidacao.Validade(cervejarias);
+            if (erros.Count() == 0)
+            {
+                _cervejariaRepository.Update(cervejarias);
+            }
+            return erros;
+        }
     }
 }

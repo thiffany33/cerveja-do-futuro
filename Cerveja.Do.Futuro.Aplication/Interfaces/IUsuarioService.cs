@@ -4,10 +4,11 @@ using System.Collections.Generic;
 
 namespace Cerveja.Do.Futuro.Aplication.Interfaces
 {
-    public interface IProdutosService
+    public interface IUsuarioService
     {
-        List<string> Cadastrar(Produtos produto);
+        List<string> Cadastrar(Usuario usuario);
+        List<string> Editar(Usuario usuario);
         List<string> Deletar(Guid id);
-        List<string> Atualizar(Produtos produto);
+
     }
 }

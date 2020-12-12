@@ -13,6 +13,7 @@ namespace Cerveja.Do.Futuro.Infra.Mapping
             builder.Property(q => q.Nome).IsRequired().HasMaxLength(500);
             builder.Property(q => q.Preco).IsRequired();
             builder.Property(q => q.Validade).IsRequired();
+            builder.Property(q => q.DescricaoProduto).IsRequired().HasMaxLength(2000);
         }
     }
 }
