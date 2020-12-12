@@ -9,5 +9,7 @@ namespace Cerveja.Do.Futuro.Aplication.Interfaces
         List<string> Cadastrar(Produtos produto);
         List<string> Deletar(Guid id);
         List<string> Atualizar(Produtos produto);
+        public Produtos PesquisarPorId(Guid id);
+        IEnumerable<Produtos> ListarTodos();
     }
 }

@@ -48,12 +48,9 @@ namespace Cerveja.Do.Futuro.API
             services.AddScoped<IProdutoRepository, ProdutoRepository>();
             services.AddScoped<IProdutosService, ProdutosService>();
 
-            services.AddScoped<IUsuarioService, UsuarioService>();
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
             services.AddScoped<IUsuarioValidacao, UsuarioValidacao>();
-
-
-
+            services.AddScoped<IUsuarioRepository, UsuarioRepository>();
         }
         
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

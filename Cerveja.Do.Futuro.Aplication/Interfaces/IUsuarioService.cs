@@ -9,6 +9,5 @@ namespace Cerveja.Do.Futuro.Aplication.Interfaces
         List<string> Cadastrar(Usuario usuario);
         List<string> Editar(Usuario usuario);
         List<string> Deletar(Guid id);
-
     }
 }

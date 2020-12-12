@@ -60,5 +60,12 @@ namespace Cerveja.Do.Futuro.API.Controllers
         {
             return Ok(_produtosService.ListarTodos());
         }
+
+        [HttpGet]
+        [Route("PesquisarPorId")]
+        public ActionResult PesquisarPorId(Guid id)
+        {
+            return Ok(_produtosService.PesquisarPorId(id));
+        }
     }
 }

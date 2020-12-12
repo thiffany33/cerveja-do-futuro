@@ -24,7 +24,7 @@ namespace Cerveja.Do.Futuro.Aplication.Services
             var erros = _usuarioValidacao.ValidarCadastro(usuario);
             if (erros.Count() == 0)
             {
-                _usuarioRepository.GetType();
+                _usuarioRepository.Create(usuario);
             }
             return erros;
         }

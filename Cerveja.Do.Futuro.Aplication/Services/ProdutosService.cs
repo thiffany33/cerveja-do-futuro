@@ -48,5 +48,15 @@ namespace Cerveja.Do.Futuro.Aplication.Services
             }
             return erros;
         }
+
+        public IEnumerable<Produtos> ListarTodos()
+        {
+            return _produtoRepository.GetAll();
+        }
+
+        public Produtos PesquisarPorId(Guid id)
+        {
+            return _produtoRepository.GetById(id);
+        }
     }
 }
