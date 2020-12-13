@@ -19,38 +19,38 @@ namespace Cerveja.Do.Futuro.API.Controllers
 
         [HttpPost]
         [Route("Cadastrar")]
-        public ActionResult Cadastrar(Usuario produto)
+        public ActionResult Cadastrar(Usuario usuario)
         {
-            var erros = _usuarioService.Cadastrar(produto);
-            if (erros.Any())
+            var erros = _usuarioService.Cadastrar(usuario);
+            if (erros.Count() > 0)
             {
                 return BadRequest(erros);
             }
-            return Ok("Adicionado com Sucesso");
+            return Ok("Cadastrado com Sucesso");
         }
 
         [HttpPut]
         [Route("EditarCadastro")]
-        public ActionResult Editar(Usuario produto)
+        public ActionResult Editar(Usuario usuario)
         {
-            var erros = _usuarioService.Editar(produto);
-            if (erros.Any())
+            var erros = _usuarioService.Editar(usuario);
+            if (erros.Count() > 0)
             {
                 return BadRequest(erros);
             }
-            return Ok("Seu Cadastro foi autalizado com Sucesso!");
+            return Ok("Atualizado com Sucesso!");
         }
 
         [HttpDelete]
         [Route("DeletarCadastro")]
-        public ActionResult Deletar(Guid Id)
+        public ActionResult Deletar(Guid id)
         {
-            var erros = _usuarioService.Deletar(Id);
-            if (erros.Any())
+            var erros = _usuarioService.Deletar(id);
+            if (erros.Count() > 0)
             {
                 return BadRequest(erros);
             }
-            return Ok("Usuario Deletado com Sucesso");
+            return Ok("Apagado com Sucesso!");
         }
     }
 }

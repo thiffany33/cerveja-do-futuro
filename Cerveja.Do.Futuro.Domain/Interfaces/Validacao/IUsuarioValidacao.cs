@@ -8,6 +8,6 @@ namespace Cerveja.Do.Futuro.Domain.Interfaces.Validacao
     {
         List<string> ValidarCadastro(Usuario usuario);
         List<string> ValidarDeletar(Guid id);
-        List<string> ValidarAtualizar(Usuario produto);
+        List<string> ValidarEditar(Usuario usuario);
     }
 }

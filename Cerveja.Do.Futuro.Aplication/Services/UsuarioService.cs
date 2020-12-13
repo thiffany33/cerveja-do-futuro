@@ -22,7 +22,7 @@ namespace Cerveja.Do.Futuro.Aplication.Services
         public List<string> Cadastrar(Usuario usuario)
         {
             var erros = _usuarioValidacao.ValidarCadastro(usuario);
-            if (erros.Count() == 0)
+            if(erros.Count() == 0)
             {
                 _usuarioRepository.Create(usuario);
             }
@@ -31,7 +31,7 @@ namespace Cerveja.Do.Futuro.Aplication.Services
 
         public List<string> Editar(Usuario usuario)
         {
-            var erros = _usuarioValidacao.ValidarAtualizar(usuario);
+            var erros = _usuarioValidacao.ValidarEditar(usuario);
             if (erros.Count() == 0)
             {
                 _usuarioRepository.Update(usuario);
@@ -42,7 +42,7 @@ namespace Cerveja.Do.Futuro.Aplication.Services
         public List<string> Deletar(Guid id)
         {
             var erros = _usuarioValidacao.ValidarDeletar(id);
-            if (!erros.Any())
+            if (erros.Count() == 0)
             {
                 _usuarioRepository.Delete(id);
             }

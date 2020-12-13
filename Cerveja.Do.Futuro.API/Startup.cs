@@ -44,13 +44,11 @@ namespace Cerveja.Do.Futuro.API
             services.AddScoped<ICervejariaValidacao, CervejariasValidacao>();
             services.AddScoped<ICervejariaService, CervejariaService>();
 
-            services.AddScoped<IProdutosValidacao, ProdutosValidacao>();
-            services.AddScoped<IProdutoRepository, ProdutoRepository>();
-            services.AddScoped<IProdutosService, ProdutosService>();
-
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
             services.AddScoped<IUsuarioValidacao, UsuarioValidacao>();
-            services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+            services.AddScoped<IUsuarioService, UsuarioService>();
+
+
         }
         
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

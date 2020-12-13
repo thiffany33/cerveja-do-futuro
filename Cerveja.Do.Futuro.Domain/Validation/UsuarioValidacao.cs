@@ -28,10 +28,6 @@ namespace Cerveja.Do.Futuro.Domain.Validation
             {
                 listaErros.Add("CPF Inválido!");
             }
-            else if (!ValidarExistenciaCPF(usuario.Cpf))
-            {
-                listaErros.Add("CNPJ já Cadastrado!");
-            }
 
             if (!ValidarObrigatoriedadeTelefone(usuario.Telefone))
             {
@@ -42,11 +38,15 @@ namespace Cerveja.Do.Futuro.Domain.Validation
                 listaErros.Add("Telefone Inválido!");
             }
 
+            if (!ValidarNome(usuario.Nome))
+            {
+                listaErros.Add("Nome Não pode ficar em Branco!");
+            }
+
             if (!ValidarEndereco(usuario.Endereco))
             {
                 listaErros.Add("Endereço Não pode ficar em Branco!");
             }
-
 
             if (!ValidarObrigatoriedadeEmail(usuario.Email))
             {
@@ -57,10 +57,15 @@ namespace Cerveja.Do.Futuro.Domain.Validation
                 listaErros.Add("Email Inválido!");
             }
 
-            if (!ValidarNome(usuario.Nome))
+            if (!ValidarObrigatoriedadeSenha(usuario.Senha))
             {
-                listaErros.Add("Nome não pode ficar em branco!");
+                listaErros.Add("Senha não pode ficar em branco!");
             }
+            //else if (!ValidarFormatoSenha(usuario.Senha))
+            //{
+            //    listaErros.Add("Senha Inválida");
+            //}
+
             return listaErros;
         }
 
@@ -69,24 +74,38 @@ namespace Cerveja.Do.Futuro.Domain.Validation
             var listaErros = new List<string>();
             if (_usuarioRepository.GetById(id) == null)
             {
-                listaErros.Add("Id Inválido!");
+                listaErros.Add("Id Invalido");
             }
             return listaErros;
         }
 
-        public List<string> ValidarAtualizar(Usuario produto)
+        public List<string> ValidarEditar(Usuario usuario)
         {
-            var listaErros = ValidarCadastro(produto);
-            if (_usuarioRepository.GetById(produto.Id) == null)
+            var listaErros = ValidarCadastro(usuario);
+            if(_usuarioRepository.GetById(usuario.Id) == null)
             {
-                listaErros.Add("Id não Encontrado!");
+                listaErros.Add("Id não encontrador");
             }
             return listaErros;
         }
+
+        private static bool ValidarObrigatoriedadeSenha(string senha)
+        {
+            if (senha == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        //private static bool ValidarFormatoSenha(string senha)
+        //{
+        //    return Regex.IsMatch(senha, @"/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/");
+        //}
 
         private static bool ValidarCPF(string cpf)
         {
-            if (Regex.IsMatch(cpf, @"/^\d{ 3}\.\d{ 3}\.\d{ 3}\-\d{ 2}$/") == true)
+            if ((Regex.IsMatch(cpf, @"/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/") == true))
             {
                 return false;
             }
@@ -102,14 +121,13 @@ namespace Cerveja.Do.Futuro.Domain.Validation
             return true;
         }
 
-        private bool ValidarExistenciaCPF(string cpf)
+        private static bool ValidarEndereco(string endereco)
         {
-            var usuario = _usuarioRepository.ObterUsuarioPorCPF(cpf);
-            if (usuario == null)
+            if (endereco == null)
             {
-                return true;
+                return false;
             }
-            return false;
+            return true;
         }
 
         private static bool ValidarNome(string nome)
@@ -143,15 +161,6 @@ namespace Cerveja.Do.Futuro.Domain.Validation
         private static bool ValidarObrigatoriedadeEmail(string email)
         {
             if (email == null)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        private static bool ValidarEndereco(string endereco)
-        {
-            if (endereco == null)
             {
                 return false;
             }
