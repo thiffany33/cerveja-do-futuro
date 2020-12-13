@@ -12,7 +12,6 @@ namespace Cerveja.Do.Futuro.Infra.Mapping
             builder.Property(q => q.Nome).IsRequired().HasMaxLength(200);
             builder.Property(q => q.Email).IsRequired().HasMaxLength(200);
             builder.Property(q => q.Endereco).IsRequired().HasMaxLength(350);
-            builder.Property(q => q.Telefone).IsRequired().HasMaxLength(14);
             builder.Property(q => q.Senha).IsRequired().HasMaxLength(16);
         }
     }

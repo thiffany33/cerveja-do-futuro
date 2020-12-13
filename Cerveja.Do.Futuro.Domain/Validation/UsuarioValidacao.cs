@@ -29,14 +29,14 @@ namespace Cerveja.Do.Futuro.Domain.Validation
                 listaErros.Add("CPF Inválido!");
             }
 
-            if (!ValidarObrigatoriedadeTelefone(usuario.Telefone))
-            {
-                listaErros.Add("Telefone não pode ficar em branco!");
-            }
-            else if (!ValidarTelefone(usuario.Telefone))
-            {
-                listaErros.Add("Telefone Inválido!");
-            }
+            //if (!ValidarObrigatoriedadeTelefone(usuario.Telefone))
+            //{
+            //    listaErros.Add("Telefone não pode ficar em branco!");
+            //}
+            //else if (!ValidarTelefone(usuario.Telefone))
+            //{
+            //    listaErros.Add("Telefone Inválido!");
+            //}
 
             if (!ValidarNome(usuario.Nome))
             {
@@ -61,10 +61,19 @@ namespace Cerveja.Do.Futuro.Domain.Validation
             {
                 listaErros.Add("Senha não pode ficar em branco!");
             }
-            //else if (!ValidarFormatoSenha(usuario.Senha))
-            //{
-            //    listaErros.Add("Senha Inválida");
-            //}
+            else if (!ValidarFormatoSenha(usuario.Senha))
+            {
+                listaErros.Add("Senha Inválida");
+            }
+
+            if (!ValidarObrigatoriedadeTelefone(usuario.Telefone))
+            {
+                listaErros.Add("Telefone não pode ficar em branco!");
+            }
+            else if (!ValidarTelefone(usuario.Telefone))
+            {
+                listaErros.Add("Telefone Inválida");
+            }
 
             return listaErros;
         }
@@ -98,10 +107,10 @@ namespace Cerveja.Do.Futuro.Domain.Validation
             return true;
         }
 
-        //private static bool ValidarFormatoSenha(string senha)
-        //{
-        //    return Regex.IsMatch(senha, @"/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/");
-        //}
+        private static bool ValidarFormatoSenha(string senha)
+        {
+            return Regex.IsMatch(senha, @"/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/");
+        }
 
         private static bool ValidarCPF(string cpf)
         {
@@ -150,7 +159,7 @@ namespace Cerveja.Do.Futuro.Domain.Validation
 
         private static bool ValidarTelefone(string telefone)
         {
-            return Regex.IsMatch(telefone, @"\(\d{2}\)\s\d{8,9}");
+            return Regex.IsMatch(telefone, @"\(\d{2}\)\s\d{11}");
         }
 
         private static bool ValidarFormatoEmail(string email)
